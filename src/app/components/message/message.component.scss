@@ -1,0 +1,47 @@
+.message-list {
+  background-color: aliceblue;
+  height: 100%;
+
+  h3 {
+    margin-top: 10px;
+    margin-left: 40px;
+    text-decoration: underline;
+  }
+
+  .table-container {
+    width: 550px;
+    max-height: 440px;
+    overflow: auto;
+    margin-left: 40px;
+
+    table {
+      width: 100%;
+      .mat-header-cell {
+        color: orange;
+        font-size: medium;
+        font-weight: bold;
+      }
+      .element-detail {
+        overflow: hidden;
+      }
+      .element-description {
+        border: 1px solid black;
+        padding: 5px;
+        white-space: pre-line;
+      }
+      .element-row td {
+        border-bottom-width: 0;
+      }
+      tr.element-row:not(.expanded-row):hover {
+        background: whitesmoke;
+      }
+
+      tr.element-row:not(.expanded-row):active {
+        background: #efefef;
+      }
+      tr.detail-row {
+        height: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.edit-lecturer {
+  background-color: aliceblue;
+  height: 100%;
+
+  .data-container {
+    display: flex;
+    gap: 100px;
+    form {
+      margin-top: 20px;
+      margin-left: 40px;
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      strong {
+        color: rgb(139, 0, 139);
+      }
+      table {
+        width: 410px;
+        th {
+          width: 25%;
+          border: 1px solid black;
+        }
+        td {
+          vertical-align: top;
+        }
+        ul {
+          margin-top: 2px;
+          margin-bottom: 0;
+          padding: 0px;
+          list-style: none;
+          max-height: 300px;
+          overflow-y: auto;
+        }
+      }
+    }
+    .courses-list {
+      margin-top: 20px;
+      h3 {
+        background-color: #f2c2f2;
+        margin: 0;
+      }
+      .table-container {
+        width: 450px;
+        height: 390px;
+        overflow: auto;
+        background-color: #f0e8f0;
+
+        table {
+          width: 100%;
+          background-color: transparent;
+
+          .mat-column-seqNumber {
+            width: 70px;
+          }
+          .mat-column-salary {
+            text-align: right;
+          }
+          .mat-column-setSalary {
+            text-align: right;
+          }
+          .mat-row {
+            height: 20px;
+          }
+          .mat-header-row {
+            height: 30px;
+            border-bottom: 2px solid darkmagenta;
+          }
+          .mat-header-cell {
+            color: darkmagenta;
+            font-size: 1rem;
+          }
+          .mat-icon {
+            font-size: 20px;
+          }
+          button {
+            padding: 0;
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div>
+  <mat-toolbar class="header">
+    <span>School Of Computer Science</span>
+    <span class="spacer"></span>
+    <button class="menu-btn" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['messages']">Messages</button>
+      <button mat-menu-item [routerLink]="['settings']">Settings</button>
+    </mat-menu>
+  </mat-toolbar>
+</div>

@@ -1,0 +1,129 @@
+<div class="new-student">
+  <div class="header">
+    <h1>New Student</h1>
+  </div>
+  <form #f="ngForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>ID (9 digits)</mat-label>
+      <input
+        type="text"
+        maxlength="9"
+        matInput
+        [formControl]="idFormControl"
+        [ngStyle]="{ textAlign: 'right' }"
+      />
+      <mat-error *ngIf="f.submitted && idFormControl.hasError('required')"
+        >ID is required</mat-error
+      >
+      <mat-error *ngIf="f.submitted && idFormControl.hasError('minlength')"
+        >ID is 9 digits required</mat-error
+      >
+      <mat-error *ngIf="f.submitted && idFormControl.hasError('pattern')"
+        >ID number is not valid</mat-error
+      >
+      <mat-error *ngIf="f.submitted && idFormControl.hasError('zeros')"
+        >ID number can not be zeros</mat-error
+      >
+      <mat-error *ngIf="f.submitted && idFormControl.hasError('isExist')"
+        >ID number already exist</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput ngModel name="firstName" required />
+      <mat-error *ngIf="f.submitted && f.controls['firstName'].invalid"
+        >first name is required</mat-error
+      >
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput ngModel name="lastName" required />
+      <mat-error *ngIf="f.submitted && f.controls['lastName'].invalid"
+        >last name is required</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Street</mat-label>
+      <input matInput ngModel name="street" required />
+      <mat-error *ngIf="f.submitted && f.controls['street'].invalid"
+        >street is required</mat-error
+      >
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput ngModel name="city" required />
+      <mat-error *ngIf="f.submitted && f.controls['city'].invalid"
+        >city is required</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" [ngStyle]="{ width: '300px' }">
+      <mat-label>E-mail</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" />
+      <mat-error *ngIf="f.submitted && emailFormControl.hasError('required')"
+        >email is required</mat-error
+      >
+      <mat-error *ngIf="f.submitted && emailFormControl.hasError('email')">
+        please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="f.submitted && emailFormControl.hasError('isExist')">
+        email address already exist
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" [ngStyle]="{ width: '70px' }">
+      <mat-label>Area</mat-label>
+      <select matNativeControl ngModel name="pre" required>
+        <option
+          *ngFor="let areaCode of areaCodes"
+          value="{{ areaCode }}"
+          [ngStyle]="{ textAlign: 'right' }"
+        >
+          {{ areaCode }}
+        </option>
+      </select>
+      <mat-error *ngIf="f.submitted && f.controls['pre'].invalid"
+        >area is required</mat-error
+      >
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill" [ngStyle]="{ width: '220px' }">
+      <mat-label>Phone Number</mat-label>
+      <input
+        type="number"
+        matInput
+        ngModel
+        name="number"
+        required
+        [ngStyle]="{ textAlign: 'right' }"
+      />
+      <mat-error *ngIf="f.submitted && f.controls['number'].invalid"
+        >phone number is required</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Registration Date</mat-label>
+      <input type="date" matInput [formControl]="rdFormControl" />
+      <mat-error *ngIf="f.submitted && rdFormControl.hasError('required')"
+        >registration date is required</mat-error
+      >
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input type="date" matInput ngModel name="birthDate" />
+    </mat-form-field>
+    <br />
+    <br />
+    <div class="btn-container">
+      <button type="submit">Add Student</button>
+      <span class="spacer"></span>
+      <button type="reset" (click)="back()">Cancel</button>
+    </div>
+  </form>
+</div>

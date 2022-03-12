@@ -1,0 +1,30 @@
+.new-lecturer {
+  background-color: aliceblue;
+  height: 100%;
+
+  form {
+    margin-top: 20px;
+    margin-left: 40px;
+    strong {
+      color: darkmagenta;
+    }
+    table {
+      width: 410px;
+      th {
+        width: 25%;
+        border: 1px solid black;
+      }
+      td {
+        vertical-align: top;
+      }
+      ul {
+        margin-top: 2px;
+        margin-bottom: 0;
+        padding: 0px;
+        list-style: none;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="course-list">
+  <div class="header">
+    <h1>Courses</h1>
+  </div>
+  <h3>Total courses : {{ courses.length }}</h3>
+  <mat-form-field appearance="standard">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      (keyup)="applyFilter($event)"
+      value="{{ search }}"
+    />
+    <button *ngIf="search" matSuffix mat-icon-button (click)="clearFilter()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- No. Column -->
+      <ng-container matColumnDef="No">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.seqNumber }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let i = index">
+          {{ coursesStatus[i].status }}
+        </td>
+      </ng-container>
+
+      <!-- total students -->
+      <ng-container matColumnDef="totalStudents">
+        <th mat-header-cell *matHeaderCellDef>Students</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.students.length }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr
+        mat-row
+        [routerLink]="['edit/', row._id, '/', coursesStatus[i]]"
+        *matRowDef="let row; let i = index; columns: displayedColumns"
+      ></tr>
+    </table>
+  </div>
+  <button
+    mat-fab
+    [routerLink]="['new/', nextNo]"
+    class="new-course-btn"
+    matTooltip="Add New Course"
+    matTooltipClass="tooltip1"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

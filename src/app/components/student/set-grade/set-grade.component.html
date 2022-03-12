@@ -1,0 +1,32 @@
+<div mat-dialog-title class="dialog-title">{{ data.text }}</div>
+<div mat-dialog-content>
+  <form #f="ngForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="fill" [ngStyle]="{ width: '125px' }">
+      <mat-label>grade (0 - 100)</mat-label>
+      <input
+        type="number"
+        matInput
+        ngModel
+        name="grade"
+        max="100"
+        required
+        pattern="[0-9]*"
+        [ngStyle]="{ textAlign: 'right' }"
+      />
+      <mat-error
+        *ngIf="f.submitted && f.form.controls['grade'].errors?.['required']"
+        >grade is required</mat-error
+      >
+      <mat-error
+        *ngIf="f.submitted && (f.form.controls['grade'].errors?.['pattern'] || f.form.controls['grade'].errors?.['max'])"
+        >grade is not valid</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <button class="btn-dialog" type="submit">Set</button>
+    <span class="spacer"></span>
+    <button class="btn-dialog" type="reset" (click)="clickCancel()">
+      Cancel
+    </button>
+  </form>
+</div>

@@ -1,0 +1,126 @@
+<div class="settings">
+  <div class="header">
+    <h1>Settings</h1>
+  </div>
+  <form #f="ngForm" (ngSubmit)="handleSubmit()">
+    <div class="course">
+      <label>Number of students in course</label>
+      <br />
+      Minimum :
+      <input
+        type="number"
+        min="1"
+        name="minStudents"
+        [ngModel]="settings?.minStudents"
+        required
+        class="min"
+      /><br />
+      Maximum :
+      <input
+        type="number"
+        min="1"
+        name="maxStudents"
+        [ngModel]="settings?.maxStudents"
+        required
+        class="max"
+      /><br />
+      <mat-error
+        *ngIf="
+          f.submitted &&
+          (f.controls['minStudents'].invalid ||
+            f.controls['maxStudents'].invalid)
+        "
+        >min/max students are not valid.</mat-error
+      >
+      <br />
+      <mat-error
+        *ngIf="
+          f.submitted &&
+          f.controls['minStudents'].value > f.controls['maxStudents'].value
+        "
+        >min' students are greater than max' students.</mat-error
+      >
+    </div>
+
+    <div class="topics">
+      <label>School topics</label><br />
+
+      <table>
+        <tr>
+          <th>Languages</th>
+          <th>Systems</th>
+          <th>Frameworks</th>
+          <th>Databases</th>
+        </tr>
+        <tr>
+          <td>
+            <input name="lang" [(ngModel)]="lang" class="topic" />
+          </td>
+          <td>
+            <input name="system" [(ngModel)]="system" class="topic" />
+          </td>
+          <td>
+            <input name="framework" [(ngModel)]="framework" class="topic" />
+          </td>
+          <td>
+            <input name="db" [(ngModel)]="db" class="topic" />
+          </td>
+
+          <td [ngStyle]="{ width: '250px' }">
+            <button type="button" (click)="addTopic()">Add</button> -
+
+            <button type="button" (click)="removeTopic()">
+              Remove Selected
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <section ngModelGroup="langs">
+              <ul>
+                <li *ngFor="let lang of settings?.langs">
+                  <input ngModel type="checkbox" name="{{ lang }}" />
+                  {{ lang }}
+                </li>
+              </ul>
+            </section>
+          </td>
+          <td>
+            <section ngModelGroup="systems">
+              <ul>
+                <li *ngFor="let system of settings?.systems">
+                  <input ngModel type="checkbox" name="{{ system }}" />
+                  {{ system }}
+                </li>
+              </ul>
+            </section>
+          </td>
+          <td>
+            <section ngModelGroup="frameworks">
+              <ul>
+                <li *ngFor="let framework of settings?.frameworks">
+                  <input ngModel type="checkbox" name="{{ framework }}" />
+                  {{ framework }}
+                </li>
+              </ul>
+            </section>
+          </td>
+          <td>
+            <section ngModelGroup="database">
+              <ul>
+                <li *ngFor="let db of settings?.database">
+                  <input ngModel type="checkbox" name="{{ db }}" />
+                  {{ db }}
+                </li>
+              </ul>
+            </section>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="btn-container">
+      <button type="submit">Update Settings</button>
+    </div>
+  </form>
+</div>

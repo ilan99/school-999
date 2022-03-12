@@ -1,0 +1,55 @@
+.settings {
+  background-color: aliceblue;
+  height: 100%;
+
+  form {
+    margin-top: 20px;
+    margin-left: 40px;
+    display: flex;
+    gap: 100px;
+    label {
+      color: darkorchid;
+      text-decoration: underline;
+      margin-bottom: 5px;
+      font-weight: 900;
+      font-family: cursive;
+      font-size: larger;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    .course {
+      width: 280px;
+      .min {
+        width: 110px;
+        margin-bottom: 3px;
+        margin-left: 3px;
+      }
+      .max {
+        width: 110px;
+      }
+    }
+
+    table {
+      th {
+        width: 130px;
+        border: 1px solid black;
+      }
+      td {
+        vertical-align: top;
+      }
+      ul {
+        margin-top: 2px;
+        margin-bottom: 0;
+        padding: 0px;
+        list-style: none;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      .topic {
+        width: 100%;
+      }
+    }
+  }
+}

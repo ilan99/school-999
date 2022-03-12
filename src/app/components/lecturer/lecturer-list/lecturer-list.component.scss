@@ -1,0 +1,54 @@
+.lecturer-list {
+  background-color: aliceblue;
+  height: 100%;
+
+  h3 {
+    margin-top: 10px;
+    margin-left: 40px;
+    text-decoration: underline;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 550px;
+    margin-left: 40px;
+  }
+
+  .table-container {
+    width: 550px;
+    max-height: 440px;
+    overflow: auto;
+    margin-left: 40px;
+
+    table {
+      width: 100%;
+      .mat-header-cell {
+        color: darkmagenta;
+        font-size: medium;
+        font-weight: bold;
+      }
+      .mat-row {
+        transition-duration: 100ms;
+        transition-property: background-color;
+      }
+      .mat-row:hover {
+        background-color: lightgray;
+        cursor: pointer;
+      }
+      .mat-column-id {
+        border-right: 1px solid currentColor;
+      }
+      .mat-column-firstName {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  .new-lecturer-btn {
+    position: absolute;
+    background-color: darkmagenta;
+    color: white;
+    bottom: 60px;
+    right: 30px;
+  }
+}

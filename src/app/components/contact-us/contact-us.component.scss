@@ -1,0 +1,19 @@
+.contactUs {
+  background-color: aliceblue;
+  height: 100%;
+
+  form {
+    margin-top: 20px;
+    margin-left: 40px;
+    .person {
+      width: 200px;
+    }
+    .message {
+      width: 405px;
+    }
+    mat-error {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

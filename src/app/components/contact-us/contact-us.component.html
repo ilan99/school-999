@@ -1,0 +1,62 @@
+<div class="contactUs">
+  <div class="header">
+    <h1>Contact Us</h1>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="handleSubmit()">
+    <input ngModel name="name" required placeholder="Name" class="person" />
+    <span class="spacer"></span>
+    <mat-error *ngIf="f.submitted && f.controls['name'].invalid"
+      >name is required</mat-error
+    >
+    <br />
+    <br />
+    <input
+      type="email"
+      [formControl]="emailFormControl"
+      placeholder="E-mail"
+      class="person"
+    />
+    <span class="spacer"></span>
+    <mat-error *ngIf="f.submitted && emailFormControl.hasError('required')"
+      >email is required</mat-error
+    >
+    <mat-error *ngIf="f.submitted && emailFormControl.hasError('email')">
+      please enter a valid email address
+    </mat-error>
+    <br />
+    <br />
+    <br />
+    <input
+      ngModel
+      name="subject"
+      required
+      placeholder="Subject"
+      class="message"
+    />
+    <span class="spacer"></span>
+    <mat-error *ngIf="f.submitted && f.controls['subject'].invalid"
+      >subject is required</mat-error
+    >
+    <br />
+    <br />
+    <textarea
+      class="message"
+      ngModel
+      name="message"
+      required
+      placeholder="Message"
+      rows="10"
+      cols="53"
+    >
+    </textarea>
+
+    <span class="spacer"></span>
+    <mat-error *ngIf="f.submitted && f.controls['message'].invalid"
+      >message is required</mat-error
+    >
+    <div class="btn-container">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

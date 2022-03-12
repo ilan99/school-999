@@ -1,0 +1,62 @@
+.course-list {
+  background-color: aliceblue;
+  height: 100%;
+
+  h3 {
+    margin-top: 10px;
+    margin-left: 40px;
+    text-decoration: underline;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 450px;
+    margin-left: 40px;
+  }
+
+  .table-container {
+    width: 450px;
+    max-height: 440px;
+    overflow: auto;
+    margin-left: 40px;
+
+    table {
+      width: 100%;
+      .mat-header-cell {
+        color: mediumblue;
+        font-size: medium;
+        font-weight: bold;
+      }
+      .mat-row {
+        transition-duration: 100ms;
+        transition-property: background-color;
+      }
+      .mat-row:hover {
+        background-color: lightgray;
+        cursor: pointer;
+      }
+      .mat-column-No {
+        width: 30px;
+        border-right: 1px solid currentColor;
+      }
+      .mat-column-name {
+        width: 40%;
+        padding-left: 15px;
+      }
+      .mat-column-status {
+        width: 30%;
+      }
+      .mat-column-totalStudents {
+        width: 30%;
+      }
+    }
+  }
+
+  .new-course-btn {
+    position: absolute;
+    background-color: mediumblue;
+    color: white;
+    bottom: 60px;
+    right: 30px;
+  }
+}

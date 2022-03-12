@@ -1,0 +1,70 @@
+<div class="message-list">
+  <div class="header">
+    <h1>Messages</h1>
+  </div>
+  <h3>Total messages : {{ messages.length }}</h3>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+      <!-- Sent Date Column -->
+      <ng-container matColumnDef="sentDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Sent Date/Time
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.sentDate.substring(0, 10) }} /
+          {{ element.sentDate.substring(11, 19) }}
+        </td>
+      </ng-container>
+
+      <!-- Subject Column -->
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+        <td mat-cell *matCellDef="let element">{{ element.subject }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [attr.colspan]="displayedColumns.length"
+        >
+          <div
+            class="element-detail"
+            [@detailExpand]="
+              element == expandedElement ? 'expanded' : 'collapsed'
+            "
+          >
+            <div>
+              <strong>From : </strong>
+              {{ element.fullName }}
+            </div>
+            <div>
+              <strong>E-mail : </strong>
+              {{ element.email }}
+            </div>
+            <p class="element-description">
+              {{ element.body }}
+            </p>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="element-row"
+        [class.expanded-row]="expandedElement === row"
+        (click)="expandedElement = expandedElement === row ? null : row"
+      >
+        >
+      </tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: ['expandedDetail']"
+        class="detail-row"
+      ></tr>
+    </table>
+  </div>
+</div>

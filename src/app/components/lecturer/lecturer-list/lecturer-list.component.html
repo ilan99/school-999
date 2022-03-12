@@ -1,0 +1,64 @@
+<div class="lecturer-list">
+  <div class="header">
+    <h1>Lecturers</h1>
+  </div>
+  <h3>Total lecturers : {{ lecturers.length }}</h3>
+  <mat-form-field appearance="standard">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      type="text"
+      (keyup)="applyFilter($event)"
+      value="{{ search }}"
+    />
+    <button *ngIf="search" matSuffix mat-icon-button (click)="clearFilter()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <!-- total courses -->
+      <ng-container matColumnDef="totalCourses">
+        <th mat-header-cell *matHeaderCellDef>Courses</th>
+        <td mat-cell *matCellDef="let element">
+          {{ getTotalCourses(element._id) }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr
+        mat-row
+        [routerLink]="['edit/', row._id]"
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </div>
+  <button
+    mat-fab
+    [routerLink]="'new'"
+    class="new-lecturer-btn"
+    matTooltip="Add New Lecturer"
+    matTooltipClass="tooltip1"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

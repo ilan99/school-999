@@ -1,0 +1,12 @@
+<div mat-dialog-content>{{ data.text }}</div>
+<div mat-dialog-actions *ngIf="data.btnCode ? true : false">
+  <button class="btn-dialog" (click)="clickOK()">OK</button>
+  <span class="spacer"></span>
+  <button
+    class="btn-dialog"
+    *ngIf="data.btnCode === 2 ? true : false"
+    (click)="clickCancel()"
+  >
+    Cancel
+  </button>
+</div>

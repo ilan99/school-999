@@ -1,0 +1,25 @@
+.side-menu {
+  width: 200px;
+  height: calc(100vh - 102px);
+  background-color: #171717;
+  flex-shrink: 0;
+
+  nav {
+    padding-top: 20px;
+    ul {
+      margin: 0px;
+      list-style: none;
+      li {
+        font-size: medium;
+        padding: 10px 0;
+        a {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+            color: #17b3ed;
+          }
+        }
+      }
+    }
+  }
+}

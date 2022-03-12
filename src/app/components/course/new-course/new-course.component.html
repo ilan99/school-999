@@ -1,0 +1,102 @@
+<div class="new-course">
+  <div class="header">
+    <h1>New Course</h1>
+  </div>
+  <label>Course No. {{ No }}</label>
+  <br />
+  <form #f="ngForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <select matNativeControl ngModel name="name" required>
+        <optgroup label="Languages">
+          <option *ngFor="let lang of settings.langs" value="{{ lang }}">
+            {{ lang }}
+          </option>
+        </optgroup>
+        <optgroup label="Systems">
+          <option *ngFor="let system of settings.systems" value="{{ system }}">
+            {{ system }}
+          </option>
+        </optgroup>
+        <optgroup label="Frameworks">
+          <option
+            *ngFor="let framework of settings.frameworks"
+            value="{{ framework }}"
+          >
+            {{ framework }}
+          </option>
+        </optgroup>
+        <optgroup label="Database">
+          <option *ngFor="let db of settings.database" value="{{ db }}">
+            {{ db }}
+          </option>
+        </optgroup>
+      </select>
+      <mat-error *ngIf="f.submitted && f.controls['name'].invalid"
+        >course name is required</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" [ngStyle]="{ width: '412px' }">
+      <mat-label>Description</mat-label>
+      <input matInput ngModel name="description" required />
+      <mat-error *ngIf="f.submitted && f.controls['description'].invalid"
+        >description is required</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input type="date" matInput [formControl]="sdFormControl" />
+      <mat-error *ngIf="f.submitted && sdFormControl.hasError('sdError1')"
+        >start date is required</mat-error
+      >
+      <mat-error *ngIf="f.submitted && sdFormControl.hasError('sdError2')"
+        >start date is greater than end date</mat-error
+      >
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input type="date" matInput [formControl]="edFormControl" />
+      <mat-error *ngIf="f.submitted && edFormControl.hasError('edError')"
+        >end date is required</mat-error
+      >
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Lecturer Name</mat-label>
+      <select matNativeControl ngModel name="lecturerId">
+        <option *ngFor="let lecturer of lecturers" value="{{ lecturer._id }}">
+          {{ lecturer.firstName }} {{ lecturer.lastName }}
+        </option>
+      </select>
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill">
+      <mat-label>Lecturer Salary (USD)</mat-label>
+      <input
+        type="number"
+        matInput
+        ngModel
+        name="salary"
+        pattern="[0-9]*"
+        [ngStyle]="{ textAlign: 'right' }"
+      />
+      <mat-error
+        *ngIf="f.submitted && f.form.controls['salary'].errors?.['pattern']"
+        >salary is not valid</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <br />
+    <div class="btn-container">
+      <button type="submit">Add Course</button>
+      <span class="spacer"></span>
+      <button type="reset" (click)="back()">Cancel</button>
+    </div>
+  </form>
+</div>

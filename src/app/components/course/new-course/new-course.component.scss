@@ -1,0 +1,19 @@
+.new-course {
+  background-color: aliceblue;
+  height: 100%;
+
+  label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+
+  form {
+    margin-left: 40px;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
