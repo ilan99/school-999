@@ -1,9 +1,30 @@
 <div class="side-menu">
   <nav>
     <ul>
-      <li><a href="students">Students</a></li>
-      <li><a href="lecturers">Lecturers</a></li>
-      <li><a href="courses">Courses</a></li>
+      <li>
+        <a
+          [routerLink]="['/students']"
+          routerLinkActive="link-active"
+          class="link"
+          >Students</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/lecturers']"
+          routerLinkActive="link-active"
+          class="link"
+          >Lecturers</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/courses']"
+          routerLinkActive="link-active"
+          class="link"
+          >Courses</a
+        >
+      </li>
     </ul>
   </nav>
 </div>

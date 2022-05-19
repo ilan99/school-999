@@ -12,10 +12,13 @@
       li {
         font-size: medium;
         padding: 10px 0;
-        a {
+        .link {
           color: #fff;
           text-decoration: none;
           &:hover {
+            color: #17b3ed;
+          }
+          &-active {
             color: #17b3ed;
           }
         }
