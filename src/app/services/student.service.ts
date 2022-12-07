@@ -9,7 +9,7 @@ export class StudentService {
   constructor() {}
 
   // private urx: string = 'http://localhost:8000/students';
-  private urx: string = 'https://school-999.herokuapp.com/students';
+  private urx: string = 'https://school-dzm6.onrender.com/students';
 
   public getAllStudents(): Promise<any> {
     return axios.get(this.urx);

@@ -7,7 +7,7 @@ import axios from 'axios';
 export class SettingService {
   constructor() {}
 
-  private url: string = 'https://school-999.herokuapp.com/settings';
+  private url: string = 'https://school-dzm6.onrender.com/settings';
 
   public getSettings(): Promise<any> {
     return axios.get(this.url);

@@ -8,7 +8,7 @@ import { Lecturer } from '../models/lecturer.interface';
 export class LecturerService {
   constructor() {}
 
-  private urx: string = 'https://school-999.herokuapp.com/lecturers';
+  private urx: string = 'https://school-dzm6.onrender.com/lecturers';
 
   public getAllLecturers(): Promise<any> {
     return axios.get(this.urx);
