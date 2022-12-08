@@ -13,6 +13,6 @@ export class AppComponent {
 
   // first server approach
   ngOnInit(): void {
-    this.studentService.getAllStudents();
+    this.studentService.initialRequest();
   }
 }

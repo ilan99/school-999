@@ -11,6 +11,11 @@ export class StudentService {
   // private urx: string = 'http://localhost:8000/students';
   private urx: string = 'https://school-dzm6.onrender.com/students';
 
+  public initialRequest(): Promise<any> {
+    const url = `${this.urx}/start`;
+    return axios.get(url);
+  }
+
   public getAllStudents(): Promise<any> {
     return axios.get(this.urx);
   }
