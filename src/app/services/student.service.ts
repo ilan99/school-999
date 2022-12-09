@@ -9,7 +9,7 @@ export class StudentService {
   constructor() {}
 
   // private urx: string = 'http://localhost:8000/students';
-  private urx: string = 'https://school-dzm6.onrender.com/students';
+  private urx: string = 'https://school-999.up.railway.app/students';
 
   public initialRequest(): Promise<any> {
     const url = `${this.urx}/start`;

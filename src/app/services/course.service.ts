@@ -6,7 +6,7 @@ import { Course } from '../models/course.interface';
   providedIn: 'root',
 })
 export class CourseService {
-  private urx: string = 'https://school-dzm6.onrender.com/courses';
+  private urx: string = 'https://school-999.up.railway.app/courses';
 
   constructor() {}
 
