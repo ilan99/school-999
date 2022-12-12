@@ -7,7 +7,7 @@ import axios from 'axios';
 export class SettingService {
   constructor() {}
 
-  private url: string = 'https://school-999.up.railway.app/settings';
+  private url: string = 'https://school-999.cyclic.app/settings';
 
   public getSettings(): Promise<any> {
     return axios.get(this.url);

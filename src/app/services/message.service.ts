@@ -8,7 +8,7 @@ import { Message } from '../models/message.interface';
 export class MessageService {
   constructor() {}
 
-  private urx: string = 'https://school-999.up.railway.app/messages';
+  private urx: string = 'https://school-999.cyclic.app/messages';
 
   public getAllMessages(): Promise<any> {
     return axios.get(this.urx);

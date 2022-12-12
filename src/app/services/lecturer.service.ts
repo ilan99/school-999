@@ -8,7 +8,7 @@ import { Lecturer } from '../models/lecturer.interface';
 export class LecturerService {
   constructor() {}
 
-  private urx: string = 'https://school-999.up.railway.app/lecturers';
+  private urx: string = 'https://school-999.cyclic.app/lecturers';
 
   public getAllLecturers(): Promise<any> {
     return axios.get(this.urx);
